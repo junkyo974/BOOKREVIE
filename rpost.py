@@ -21,7 +21,7 @@ SECRET_KEY = 'BOOKREVIEW'
 #고유 ID 값
 import uuid
 
-#메인 홈으로
+#메인 홈으로1
 CORS(app)
 @app.route("/")
 def main():
