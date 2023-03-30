@@ -34,11 +34,7 @@
 
       .mytitle {
         width: 100%;
-<<<<<<< HEAD
-        height: 250px;
-=======
         height: 220px;
->>>>>>> 31d783a0417c64cc3619957604e2ed2fa132013a
 
         background-image: linear-gradient(
             0deg,
@@ -62,8 +58,6 @@
         width: 95%;
         max-width: 1200px;
       }
-<<<<<<< HEAD
-=======
 
       .mytitle > button:hover {
           border: 2px solid white;
@@ -90,16 +84,11 @@
       .header-menu {
           display: flex;
       }
->>>>>>> 31d783a0417c64cc3619957604e2ed2fa132013a
     </style>
     <script>
       $(document).ready(function () {
         show_detail();
-<<<<<<< HEAD
-        show_comment();
-=======
         //show_comment();
->>>>>>> 31d783a0417c64cc3619957604e2ed2fa132013a
       });
 
       //   const bookDetailGet = () => {
@@ -138,13 +127,6 @@
       //     });
       //   };
 
-<<<<<<< HEAD
-      function show_detail(postid) {
-        $.ajax({
-          type: "GET",
-          url: `/bookreview`,
-          data: {},
-=======
       function show_detail() {
         $.ajax({
           type: "POST",
@@ -152,7 +134,6 @@
           data: JSON.stringify({"uid": uid}),
           contentType: 'application/json;charset=UTF-8',
           dataType: 'json',
->>>>>>> 31d783a0417c64cc3619957604e2ed2fa132013a
           success: function (response) {
             let rows = data["result"];
             $("#book-detail").empty();
@@ -162,35 +143,6 @@
               let desc = a["desc"];
               let image = a["image"];
               let star = a["star"];
-<<<<<<< HEAD
-              let nickname = a["nickname"];
-
-              let star_repeat = "⭐".repeat(star);
-
-              let temp_html = `<div class="card mb-3">
-                                      <div class="row g-0">
-                                      <div class="col-md-4">
-                                          <img
-                                          src="${image}"
-                                          class="img-fluid rounded-start"
-                                          alt="책사진"
-                                          />
-                                      </div>
-                                      <div class="col-md-8">
-                                          <div class="card-body">
-                                          <h5 class="card-title" style="font-weight:bold">${title}</h5>
-                                          <p class="card-text">${desc}</p>
-                                          </div>
-                                      </div>
-                                      </div>
-                                  </div>
-                                  <div class="review">
-                                      <div>${star_repeat}</div>
-                                      <div>${nickname}</div>
-                                      <h5>${comment}</h5>
-                                  </div>`;
-              $("#book-detail").append(temp_html);
-=======
               let nickname = a["nick"];
               let loginId = a['id']
 
@@ -224,7 +176,6 @@
                                     </div>`;
                 $("#book-detail").append(temp_html);
               }
->>>>>>> 31d783a0417c64cc3619957604e2ed2fa132013a
             });
           },
         });
@@ -232,10 +183,6 @@
 
       function save_comment(postid) {
         let comment = $("#comment").val();
-<<<<<<< HEAD
-=======
-
->>>>>>> 31d783a0417c64cc3619957604e2ed2fa132013a
         $.ajax({
           type: "POST",
           url: `/comment`,
@@ -272,48 +219,6 @@
       //   }
 
       // 디테일 페이지 - 댓글보여주기
-<<<<<<< HEAD
-      function show_comment(postid) {
-        console.log(postid);
-        $.ajax({
-          type: "GET",
-          url: `/detail`,
-          data: {},
-          success: function (response) {
-            $.ajax({
-              type: "GET",
-              url: `/comment`,
-              data: {},
-              success: function (response) {
-                let list = response["comment_list"];
-                // 전체 comment에서 현재포스트(postid)의 댓글만 보여줄 수 있게함
-                let current_list = list.filter((item, idx, arr) => {
-                  return item.postid === postid;
-                  // console.log(Number(item.theater_id) === Number(id))
-                });
-                // 해당 페이지의 id가 있는 DB만 보여주기
-                if (current_list) {
-                  for (let i = 0; i < current_list.length; i++) {
-                    // console.log(list[i])
-                    let user = current_list[i]["nickname"];
-                    let comment = current_list[i]["comment"];
-                    let post_id = current_list[i]["postid"];
-                    let temp_html = `
-                      <div class="review_card">
-                          <div class="review_view">
-                              <p class="review_view_id">${user}</p>
-                              <p class="review_view_text">${review}</p>
-                          </div>
-                      </div>`;
-                    $("#culture_review_show").append(temp_html);
-                  }
-                }
-              },
-            });
-          },
-        });
-      }
-=======
       // function show_comment(postid) {
       //   console.log(postid);
       //   $.ajax({
@@ -386,21 +291,17 @@
           window.location.href = 'home.html'
       }
 
->>>>>>> 31d783a0417c64cc3619957604e2ed2fa132013a
     </script>
   </head>
 
   <body>
     <div class="mytitle">
-<<<<<<< HEAD
-=======
       <div class="container" id="header">
           <div class = "header">
               <div class="header-menu">
               </div>
           </div>
       </div>
->>>>>>> 31d783a0417c64cc3619957604e2ed2fa132013a
       <h1>Book Review</h1>
     </div>
 
@@ -467,8 +368,4 @@
       </div>
     </div>
   </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 31d783a0417c64cc3619957604e2ed2fa132013a
