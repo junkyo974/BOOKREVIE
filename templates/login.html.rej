@@ -1,0 +1,9 @@
+diff a/templates/login.html b/templates/login.html	(rejected hunks)
+@@ -94,6 +94,7 @@
+             </div>
+             <button class="button is-primary" onclick="login()">로그인</button>
+             <button class="button is-primary" onclick="back_mian()">메인화면</button>
++            <button class="button is-danger" onclick="logout()">로그아웃</button>
+         </div>
+     </div>
+ </body>
