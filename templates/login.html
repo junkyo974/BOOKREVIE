@@ -54,6 +54,11 @@
                 }
             });
         }
+        function logout() {
+            $.removeCookie('mytoken');
+            alert('로그아웃!')
+            window.location.href = 'index.html'
+        }
 
     </script>
 
@@ -89,6 +94,7 @@
             </div>
             <button class="button is-primary" onclick="login()">로그인</button>
             <button class="button is-primary" onclick="back_mian()">메인화면</button>
+            <button class="button is-danger" onclick="logout()">로그아웃</button>
         </div>
     </div>
 </body>
