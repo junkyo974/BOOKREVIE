@@ -19,6 +19,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
     <title>도서 리뷰</title>
 
@@ -126,8 +127,12 @@
       //       },
       //     });
       //   };
+      
+      const receivedData = location.href.split('?')[1];
+      console.log(receivedData); 
 
       function show_detail() {
+
         $.ajax({
           type: "POST",
           url: '/bookreview',
@@ -183,7 +188,6 @@
 
       function save_comment(postid) {
         let comment = $("#comment").val();
-
         $.ajax({
           type: "POST",
           url: `/comment`,
@@ -296,6 +300,7 @@
   </head>
 
   <body>
+    
     <div class="mytitle">
       <div class="container" id="header">
           <div class = "header">

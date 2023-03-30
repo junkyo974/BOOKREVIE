@@ -71,7 +71,7 @@ def book_gets():
     return jsonify({'result':books})
 
 #도서 상세 페이지로 이동
-@app.route('/bookreview')
+@app.route('/books')
 def detail_Page():
     return render_template('detail.html')
 
@@ -83,7 +83,7 @@ def book_detail():
     print('=======================')
     print(book_detail)
     print('=======================')
-    return jsonify({'result':book_detail})
+    return jsonify({'detail.html'}, {'result':book_detail})
 
 # #댓글 등록 => bookid받아올 수 있나?
 # @app.route("/comment", methods=["POST"])
