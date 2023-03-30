@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from bson import json_util
 app = Flask(__name__)
 
 from pymongo import MongoClient
@@ -76,14 +77,24 @@ def detail_Page():
     return render_template('detail.html')
 
 #key_id 값 불러와 도서 상세, 리뷰 불러오기
-@app.route("/bookreview", methods=["POST"])
+@app.route("/detail.html", methods=["GET"])
 def book_detail():
-    uid = request.json['uid']
-    book_detail = db.breviews.find_one({'keyid': uid},{'_id':False})
+    # uid = request.args.get('uid')
+    # book_detail = db.breviews.find_one({'keyid': uid},{'_id':False})
+    # print('=======================')
+    # print(book_detail)
+    # print('=======================')
+    return render_template('detail.html')
+
+@app.route("/bookreview", methods=["POST"])
+def book_detail2():
+    uid = request.get_json()
+    print(uid.get("uid"))
+    book_detail = list(db.breviews.find({},{'_id':False}))
     print('=======================')
     print(book_detail)
     print('=======================')
-    return jsonify({'detail.html'}, {'result':book_detail})
+    return jsonify({'result':book_detail[0]})
 
 # #댓글 등록 => bookid받아올 수 있나?
 # @app.route("/comment", methods=["POST"])
